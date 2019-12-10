@@ -31,7 +31,7 @@ public class ReactiveController {
 	@Autowired
 	MongoRepo repo;
 
-	long DELAY_PER_ITEM_MS = 50;
+	long DELAY_PER_ITEM_MS = 10;
 	
 	  @GetMapping("/getAll") Flux<Resturants> getAll(){
 	  
