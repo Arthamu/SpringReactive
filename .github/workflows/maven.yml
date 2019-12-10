@@ -15,8 +15,10 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
-         name:  SpringReactive.jar
-         path: .
+    - name: Deploy
+      uses: s0/git-publish-subdir-action@master
+      env:
+        REPO: git@github.com:Arthamu/ArtifactRepo.git
+        BRANCH: master
+        FOLDER: target
+        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
